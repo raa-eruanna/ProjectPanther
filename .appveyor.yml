@@ -37,10 +37,10 @@ build_script:
 
 after_build:
   - set OUTPUT_DIR=%APPVEYOR_BUILD_FOLDER%\build\%CONFIGURATION%\
-  - 7z a ..\gzdoom.zip "%OUTPUT_DIR%gzdoom.exe" "%OUTPUT_DIR%*.pk3"
+  - 7z a ..\panther.zip "%OUTPUT_DIR%panther.exe" "%OUTPUT_DIR%*.pk3"
 
 artifacts:
-  - path: gzdoom.zip
+  - path: panther.zip
 
 notifications:
   - provider: Email
