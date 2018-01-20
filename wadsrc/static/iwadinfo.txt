@@ -16,7 +16,7 @@ IWad
 
 Names
 {	
-	"panther.pk3"
+	"panthergame.pk3"
 }
 
 Order	// Order in the IWAD selection box
