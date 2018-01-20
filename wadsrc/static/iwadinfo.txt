@@ -6,7 +6,7 @@ IWad
 	Autoname = "panther"
 	Game = "Doom"
 	Config = "Panther"
-	IWADName = "panther.pk3", 1
+	IWADName = "panthergame.pk3", 1
 	MapInfo = "mapinfo/mindefaults.txt"
 	Compatibility = "Shorttex"
 	MustContain = "MAP01"
