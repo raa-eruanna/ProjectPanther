@@ -7,11 +7,10 @@ IWad
 	Game = "Doom"
 	Config = "Panther"
 	IWADName = "panthergame.pk3", 1
-	MapInfo = "mapinfo/panther.txt"
+	MapInfo = "mapinfo/mindefaults.txt"
 	Compatibility = "Shorttex"
 	MustContain = "MAP01"
 	BannerColors = "a8 00 a8", "a8 a8 a8"
-	Load = "PantherAssets.pk3", "PantherAssets_Dev"
 }
 	
 
