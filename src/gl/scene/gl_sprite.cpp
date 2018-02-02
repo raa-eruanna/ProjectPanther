@@ -990,7 +990,7 @@ void GLSprite::Process(AActor* thing, sector_t * sector, int thruportal)
 			if (gl_fuzztype != 0 && !gl.legacyMode && !(RenderStyle.Flags & STYLEF_InvertSource))
 			{
 				RenderStyle = LegacyRenderStyles[STYLE_Translucent];
-				OverrideShader = gl_fuzztype + 4;
+				OverrideShader = SHADER_NoTexture + gl_fuzztype;
 				trans = 0.99f;	// trans may not be 1 here
 				hw_styleflags = STYLEHW_NoAlphaTest;
 			}
