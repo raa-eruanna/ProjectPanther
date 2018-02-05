@@ -343,16 +343,11 @@ OptionMenu "OptionsMenu" protected
 	Submenu "$OPTMNU_JOYSTICK",			"JoystickOptions"
 	StaticText " "
 	Submenu "$OPTMNU_PLAYER",			"PlayerMenu"
-	Submenu "$OPTMNU_GAMEPLAY",			"GameplayOptions"
-	Submenu "$OPTMNU_COMPATIBILITY",	"CompatibilityOptions"
 	Submenu "$OPTMNU_AUTOMAP",			"AutomapOptions"
 	Submenu "$OPTMNU_HUD",				"HUDOptions"
-	Submenu "$OPTMNU_MISCELLANEOUS",	"MiscOptions"
-	Submenu "$OPTMNU_NETWORK",			"NetworkOptions"
 	Submenu "$OPTMNU_SOUND",			"SoundOptions"
 	Submenu "$OPTMNU_DISPLAY",			"VideoOptions"
 	Submenu "$OPTMNU_VIDEO",			"VideoModeMenu"
-	Submenu "$OPTMNU_CHANGERENDER",		"RendererMenu"
 	StaticText " "
 	SafeCommand "$OPTMNU_DEFAULTS",	"reset2defaults"
 	SafeCommand	"$OPTMNU_RESETTOSAVED",	"reset2saved"
@@ -733,11 +728,7 @@ OptionMenu "VideoOptions" protected
 	Title "$DSPLYMNU_TITLE"
 	
 	Submenu "$DSPLYMNU_GLOPT", 			"OpenGLOptions"
-	Submenu "$DSPLYMNU_SWOPT", 			"SWROptions"
-	Submenu "$GLMNU_DYNLIGHT",			"GLLightOptions"
-	Submenu "$DSPLYMNU_SCOREBOARD", 			"ScoreboardOptions"
 	StaticText " "
-	Slider "$DSPLYMNU_SCREENSIZE",				"screenblocks", 				3.0, 12.0, 1.0, 0
 
 	Slider "$DSPLYMNU_GAMMA",					"Gamma",						0.75, 3.0, 0.05, 2
 	Slider "$DSPLYMNU_BRIGHTNESS",				"vid_brightness",				-0.8,0.8, 0.05,2
@@ -746,23 +737,12 @@ OptionMenu "VideoOptions" protected
 	Option "$DSPLYMNU_HWGAMMA",					"vid_hwgamma", "HWGammaModes"
 	StaticText " "
 	Option "$DSPLYMNU_VSYNC",					"vid_vsync", "OnOff"
-	Option "$DSPLYMNU_CAPFPS",					"cl_capfps", "OffOn"
 	Slider "$DSPLYMNU_BLOODFADE",				"blood_fade_scalar", 0.0, 1.0, 0.05, 2
 	Slider "$DSPLYMNU_PICKUPFADE",				"pickup_fade_scalar", 0.0, 1.0, 0.05, 2
 	Slider "$DSPLYMNU_WATERFADE",				"underwater_fade_scalar", 0.0, 1.0, 0.05, 2
 
 	StaticText " "
-	Option "$DSPLYMNU_WIPETYPE",				"wipetype", "Wipes"
-
-	IfOption(Windows)
-	{
-		Option	"$DSPLYMNU_SHOWENDOOM",			"showendoom", "Endoom"
-	}
 	
-	Option "$DSPLYMNU_DRAWFUZZ",				"r_drawfuzz", "Fuzziness"
-	Option "$DSPLYMNU_OLDTRANS",				"r_vanillatrans", "VanillaTrans"
-	Slider "$DSPLYMNU_TRANSSOUL",				"transsouls", 0.25, 1.0, 0.05, 2
-	Option "$DSPLYMNU_FAKECONTRAST",			"r_fakecontrast", "Contrast"
 	Option "$DSPLYMNU_ROCKETTRAILS",			"cl_rockettrails", "RocketTrailTypes"
 	Option "$DSPLYMNU_BLOODTYPE",				"cl_bloodtype", "BloodTypes"
 	Option "$DSPLYMNU_PUFFTYPE",				"cl_pufftype", "PuffTypes"
@@ -772,9 +752,6 @@ OptionMenu "VideoOptions" protected
 	Option "$DSPLYMNU_DEATHCAM",				"r_deathcamera", "OnOff"
 	Option "$DSPLYMNU_TELEZOOM",				"telezoom", "OnOff"
 	Slider "$DSPLYMNU_QUAKEINTENSITY",			"r_quakeintensity", 0.0, 1.0, 0.05, 2
-	Option "$DSPLYMNU_NOMONSTERINTERPOLATION",	"nomonsterinterpolation", "NoYes"
-	Slider "$DSPLYMNU_MENUDIM",					"dimamount", 0, 1.0, 0.05, 2
-	ColorPicker "$DSPLYMNU_DIMCOLOR",			"dimcolor"
 	Slider "$DSPLYMNU_MOVEBOB",			"movebob", 0, 1.0, 0.05, 2
 	Slider "$DSPLYMNU_STILLBOB",		"stillbob", 0, 1.0, 0.05, 2
 	Slider "$DSPLYMNU_BOBSPEED",				"wbobspeed", 0, 2.0, 0.1
@@ -850,7 +827,6 @@ OptionMenu "HUDOptions" protected
 {
 	Title "$HUDMNU_TITLE"
 	Submenu "$HUDMNU_SCALEOPT",				"ScalingOptions"
-	Submenu "$HUDMNU_ALTHUD",				"AltHudOptions"
 	Submenu "$HUDMNU_MESSAGE", 				"MessageOptions"
 	StaticText " "
 	Option "$HUDMNU_CROSSHAIR",				"crosshair", "Crosshairs"
@@ -862,12 +838,6 @@ OptionMenu "HUDOptions" protected
 	StaticText " "
 	Option "$HUDMNU_NAMETAGS",				"displaynametags", "DisplayTagsTypes"
 	Option "$HUDMNU_NAMETAGCOLOR",			"nametagcolor", "TextColors", "displaynametags"
-	Option "$HUDMNU_OLDOUCH",				"st_oldouch", "OnOff"
-	StaticText " "
-	Option "$HUDMNU_HEXENFLASHES",			"pf_hexenweaps", "ZDoomHexen"
-	Option "$HUDMNU_POISONFLASHES",			"pf_poison", "ZDoomHexen"
-	Option "$HUDMNU_ICEFLASHES",			"pf_ice", "ZDoomHexen"
-	Option "$HUDMNU_HAZARDFLASHES",			"pf_hazard", "ZDoomStrife"
 }
 
 OptionMenu "ScalingOptions" protected
@@ -1610,7 +1580,6 @@ OptionMenu SoundOptions protected
 	Slider "$SNDMNU_SFXVOLUME",			"snd_sfxvolume", 0, 1, 0.05, 2
 	Slider "$SNDMNU_MENUVOLUME",		"snd_menuvolume", 0, 1, 0.05, 2
 	Slider "$SNDMNU_MUSICVOLUME",		"snd_musicvolume", 0, 1, 0.05, 2
-	Option "$SNDMNU_MIDIDEVICE",		"snd_mididevice", "MidiDevices"
 	StaticText " "
 	Option "$SNDMNU_UNDERWATERREVERB",	"snd_waterreverb", "OnOff"
 	Option "$SNDMNU_RANDOMIZEPITCHES",	"snd_pitched", "OnOff"
@@ -1621,15 +1590,10 @@ OptionMenu SoundOptions protected
 
 	ifoption(openal)
 	{
-		Option "$SNDMNU_BACKEND",		"snd_backend", "SoundBackendsOpenALOnly"
 		Submenu "$SNDMNU_OPENAL",		"OpenALSoundItems"
 	}
-	StaticText " "
 	Command "$SNDMNU_RESTART",			"snd_reset"
-
-	StaticText " "
 	Submenu "$SNDMNU_ADVANCED",			"AdvSoundOptions"
-	Submenu "$SNDMNU_MODREPLAYER",		"ModReplayerOptions"
 	StaticText " "
 	Submenu "$OPTMNU_REVERB",			"ReverbEdit"
 }
@@ -1662,44 +1626,6 @@ OptionMenu AdvSoundOptions protected
 	Title "$ADVSNDMNU_TITLE"
 	Option "$ADVSNDMNU_SAMPLERATE",			"snd_samplerate", "SampleRates"
 	Option "$ADVSNDMNU_HRTF",				"snd_hrtf", "AutoOffOn"
-	StaticText " "
-	StaticText "$ADVSNDMNU_OPLSYNTHESIS",	1
-	Slider "$ADVSNDMNU_OPLNUMCHIPS", 		"opl_numchips", 1, 8, 1, 0
-	Option "$ADVSNDMNU_OPLFULLPAN",			"opl_fullpan", "OnOff"
-	Option "$ADVSNDMNU_OPLCORES", 			"opl_core", "OplCores"
-	StaticText " "
-	StaticText "$ADVSNDMNU_GUSEMULATION",	1
-	TextField "$ADVSNDMNU_GUSCONFIG", 		"midi_config"
-	SubMenu "$ADVSNDMNU_SELCONFIG",		"GusConfigMenu"
-	Slider "$ADVSNDMNU_MIDIVOICES",			"midi_voices", 16, 256, 4, 0
-	Option "$ADVSNDMNU_DMXGUS", 			"midi_dmxgus", "OnOff"
-	Option "$ADVSNDMNU_GUSMEMSIZE", 		"gus_memsize", "GusMemory"
-	StaticText " "
-	StaticText "$ADVSNDMNU_FLUIDSYNTH",	1
-	TextField "$ADVSNDMNU_FLUIDPATCHSET", 	"fluid_patchset"
-	SubMenu "$ADVSNDMNU_SELCONFIG",		"FluidPatchsetMenu"
-	Slider "$ADVSNDMNU_FLUIDGAIN",			"fluid_gain", 0, 10, 0.5, 1
-	Option "$ADVSNDMNU_REVERB", 			"fluid_reverb", "OnOff"
-	Option "$ADVSNDMNU_CHORUS", 			"fluid_chorus", "OnOff"
-	Slider "$ADVSNDMNU_MIDIVOICES", 		"fluid_voices", 16, 4096, 16, 0
-	// Leaving out the more advanced stuff for now.
-	StaticText " "
-	StaticText "$ADVSNDMNU_TIMIDITY",	1
-	TextField "$ADVSNDMNU_TIMIDITYEXE", 	"timidity_exe"
-	IfOption(Windows)
-	{
-		SubMenu "$ADVSNDMNU_SELCONFIG",		"TimidityExeMenu"
-	}
-	TextField "$ADVSNDMNU_TIMIDITYCONFIG", 	"timidity_config"
-	SubMenu "$ADVSNDMNU_SELCONFIG",		"TimidityConfigMenu"
-	Option "$ADVSNDMNU_REVERB", 			"timidity_reverb", "OnOff"
-	Option "$ADVSNDMNU_CHORUS", 			"timidity_chorus", "OnOff"
-	Slider "$ADVSNDMNU_TIMIDITYVOLUME",		"timidity_mastervolume", 0, 4, 0.2, 1
-	StaticText " "
-	StaticText "$ADVSNDMNU_WILDMIDI",	1
-	TextField "$ADVSNDMNU_WILDMIDICONFIG", 	"wildmidi_config"
-	SubMenu "$ADVSNDMNU_SELCONFIG",		"WildMidiConfigMenu"
-	Option "$ADVSNDMNU_REVERB", 			"wildmidi_reverb", "OnOff"
 }
 
 OptionMenu GusConfigMenu protected
@@ -1861,9 +1787,6 @@ OptionValue ScaleModes
 {
 	0, "$OPTVAL_SCALENEAREST"
 	1, "$OPTVAL_SCALELINEAR"
-	2, "320x200"
-	3, "640x400"
-	4, "1280x800"
 }
 OptionValue CropAspect
 {
@@ -1887,9 +1810,6 @@ OptionMenu VideoModeMenu protected
 		Option "$VIDMNU_BRDLSS",		"win_borderless", "YesNo"
 	}
 	
-	Option "$VIDMNU_ASPECTRATIO",		"menu_screenratios", "Ratios"
-	Option "$VIDMNU_FORCEASPECT",		"vid_aspect", "ForceRatios"
-	Option "$VIDMNU_CROPASPECT",		"vid_cropaspect", "CropAspect"
 	Option "$VIDMNU_SCALEMODE",			"vid_scalemode", "ScaleModes"
 	Slider "$VIDMNU_SCALEFACTOR",		"vid_scalefactor", 0.25, 2.0, 0.25, 2
 	StaticText " "
@@ -2182,40 +2102,14 @@ OptionMenu "GLLightOptions" protected
 OptionMenu "OpenGLOptions" protected
 {
 	Title "$GLMNU_TITLE"
-	Submenu "$GLMNU_TEXOPT", 			"GLTextureGLOptions"
-	StaticText " "
-	Option "$GLPREFMNU_SECLIGHTMODE",			gl_lightmode,					"LightingModes"
-	Option "$GLPREFMNU_SWLMBANDED",				gl_bandedswlight,				"OnOff"
-	Option "$GLPREFMNU_FOGMODE",				gl_fogmode,						"FogMode"
-	Option "$GLPREFMNU_FOGFORCEFULLBRIGHT",		gl_brightfog,					"YesNo"
-	Slider "$GLPREFMNU_WPNLIGHTSTR",			gl_weaponlight,					0,32, 2
-	Option "$GLPREFMNU_ENVIRONMENTMAPMIRROR",	gl_mirror_envmap,				"OnOff"
-	Option "$GLPREFMNU_ENV",					gl_enhanced_nightvision,		"OnOff"
-	Option "$GLPREFMNU_ENVSTEALTH",				gl_enhanced_nv_stealth,			"EnhancedStealth"
-	Option "$GLPREFMNU_SPRBRIGHTFOG",			gl_spritebrightfog,				"OnOff"
-	Option "$GLPREFMNU_SPRCLIP",				gl_spriteclip,					"SpriteclipModes"
-	Option "$GLPREFMNU_SPRBLEND",				gl_sprite_blend,				"OnOff"
-	Option "$GLPREFMNU_FUZZSTYLE",				gl_fuzztype,					"FuzzStyle"
-	Option "$GLPREFMNU_SPRBILLBOARD",			gl_billboard_mode,				"BillboardModes"
-	Option "$GLPREFMNU_SPRBILLFACECAMERA",		gl_billboard_faces_camera,		"OnOff"
-	Option "$GLPREFMNU_PARTICLESTYLE",			gl_particles_style,				"Particles"
-	Option "$GLPREFMNU_RENDERQUALITY",			gl_render_precise,				"Precision"
-	StaticText " "
-	Slider "$GLPREFMNU_MENUBLUR",				gl_menu_blur, 0, 5.0, 0.5, 2
-	StaticText " "
 	Option "$GLPREFMNU_VRMODE",					vr_mode, 						"VRMode"
 	Option "$GLPREFMNU_VRQUADSTEREO",			vr_enable_quadbuffered,			"OnOff"
 	StaticText " "
 	Option "$GLPREFMNU_MULTISAMPLE", 			gl_multisample,					"Multisample"
-	Option "$GLPREFMNU_TONEMAP", 				gl_tonemap,						"TonemapModes"
 	Option "$GLPREFMNU_BLOOM",		 			gl_bloom,						"OnOff"
-	Option "$GLPREFMNU_LENS",		 			gl_lens,						"OnOff"
 	Option "$GLPREFMNU_SSAO",		 			gl_ssao,						"SSAOModes"
 	Slider "$GLPREFMNU_SSAO_PORTALS",			gl_ssao_portals,				0.0, 4.0, 1.0, 0
 	Option "$GLPREFMNU_FXAA",		 			gl_fxaa,						"FXAAQuality"
-	StaticText " "
-	Slider "$GLPREFMNU_PALTONEMAPPOWER",		gl_paltonemap_powtable,			0.2, 3.0, 0.1, 1
-	Option "$GLPREFMNU_PALTONEMAPORDER",		gl_paltonemap_reverselookup,	"LookupOrder"
 }
 
 OptionMenu "ReverbEdit" protected
